@@ -6,7 +6,7 @@ import shutil
 from sklearn.cluster import DBSCAN
 #from sklearn.cluster import KMeans
 #from sklearn.cluster import AgglomerativeClustering
-pictures=r"/content/drive/My Drive/google photos managment/photos"
+pictures=r"/photos"
 faces=[]
 tolerance=0.5
 for filename in os.listdir(pictures):
@@ -40,10 +40,10 @@ for filename in os.listdir(pictures):
               q+=1
               print('match found :')
               cv.rectangle(image,(face_loc[3],face_loc[0]),(face_loc[1],face_loc[2]),(0,255,0),4)
-              if not (os.path.exists(fr"/content/drive/My Drive/project/identification/{names[result.index(True)]}")):
-                  os.makedirs(fr"/content/drive/My Drive/project/identification/{names[result.index(True)]}")
-              if not (os.path.exists(fr"/content/drive/My Drive/project/identification/{names[result.index(True)]}/{filename}")):
-                  #shutil.copy(fr"{pictures}/{filename}",fr"/content/drive/My Drive/project/identification/{names[result.index(True)]}/{filename}")
-                  cv.imwrite(fr"/content/drive/My Drive/project/identification/{names[result.index(True)]}/{filename}",image)
+              if not (os.path.exists(fr"/identification/{names[result.index(True)]}")):
+                  os.makedirs(fr"/identification/{names[result.index(True)]}")
+              if not (os.path.exists(fr"/identification/{names[result.index(True)]}/{filename}")):
+                  #shutil.copy(fr"{pictures}/{filename}",fr"/identification/{names[result.index(True)]}/{filename}")
+                  cv.imwrite(fr"/identification/{names[result.index(True)]}/{filename}",image)
 
                 #cv.putText(image,'match found :',(face_loc[3],face_loc[0]),(0,255,0),5,cv.LINE_AA)
